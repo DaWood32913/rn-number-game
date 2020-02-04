@@ -28,11 +28,11 @@ const StartGameScreen = props => {
 
   const confirmInputHandler = () => {
     const chosenNumber = parseInt(enteredValue);
-    if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 99) {
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
       Alert.alert(
         "Invalid Number!",
-        "Number must be between 1 and 99!"[
-          { text: "Okay", style: "destructive", onPress: resetInputHandler }]
+        "Number must be between 1 and 99!",
+        [{ text: "Ok", style: "destructive", onPress: resetInputHandler }]
       );
       return;
     }
@@ -62,7 +62,7 @@ const StartGameScreen = props => {
             blurOnSubmit
             autoCapitalize="none"
             autoCorrect={false}
-            keyboardType="numeric-pad"
+            keyboardType="number-pad"
             maxLength={2}
             onChangeText={numberInputHandler}
             value={enteredValue}
